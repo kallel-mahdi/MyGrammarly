@@ -3,32 +3,26 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>MyGrammarly - Real-time Grammar Checker</title>
+	<title>MyGrammarly - AI-Powered Writing Assistant</title>
+	<meta name="description" content="Real-time grammar checking, spell checking, and writing suggestions powered by LanguageTool and advanced text analysis." />
 	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
 </head>
 <body>
-	<main class="container">
-		<h1>MyGrammarly</h1>
-		<p class="subtitle">Type your text below. Checks run after you pause typing.</p>
+	<div id="root"></div>
 
-		<section class="editor-section">
-			<div class="editor-wrapper">
-				<div id="editorOverlay" aria-hidden="true"></div>
-				<textarea id="editor" placeholder="Start typing..." rows="12" spellcheck="true"></textarea>
-				<div id="popover" hidden></div>
-			</div>
-			<div class="status-bar">
-				<span id="charCount">0 chars</span>
-				<span id="status">Idle</span>
-			</div>
-		</section>
+	<!-- React (development UMD builds) -->
+	<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-		<section class="results-section">
-			<h2>Suggestions</h2>
-			<div id="issues"></div>
-		</section>
-	</main>
-
-	<script src="{{ url_for('static', filename='app.js') }}"></script>
+	<!-- 
+		MyGrammarly Application
+		
+		Note: For development simplicity, we're loading a consolidated version.
+		The modular structure is available in static/js/ for development and research.
+		
+		To use the modular structure in production, you'd need a bundler like Webpack or Vite.
+	-->
+	<script type="text/babel" data-presets="env,react" src="{{ url_for('static', filename='app-consolidated.jsx') }}"></script>
 </body>
 </html>
